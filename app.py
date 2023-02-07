@@ -115,6 +115,7 @@ class App:
     #   data: pd.Dataframe object
     def plot_model(self, data):
         X = np.array(data.drop(['label'], axis=1))
+        print(X)
         y = np.array(data['label'])
         
         tSNE_data = TSNE(n_components=3, random_state=99).fit_transform(X)
