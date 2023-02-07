@@ -171,7 +171,7 @@ def main():
             model_metrics = hold1outCV(estimator,X,y)
             print(f'Model Metrics for DF={c} & num_features={th}\n{model_metrics}\n')
             
-            return
+    return
 
 
 if __name__ == '__main__':
