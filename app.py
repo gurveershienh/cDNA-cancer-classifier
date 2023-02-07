@@ -55,7 +55,7 @@ class App:
         self._frame = Frame(self._root, bg=bg, height=hght_percent(20), width=width_percent(80), highlightbackground="black", highlightthickness=4)
         self._frame.place(x= width_percent(10), y=hght_percent(70))
         self.pred_label = Label(self._frame, bg=bg, font=("Arial",32))
-        self.pred_label.place(x=width_percent(24), y=20)
+        self.pred_label.place(x=width_percent(22), y=20)
         self.file_label = Label(self._frame, bg=bg, font=("Arial",12))
         self.file_label.place(x=width_percent(18), y=90)
         Label(self._root, bg=bg, text='TP: 31',font=("Arial",16)).place(x=width_percent(10), y=hght_percent(52))
