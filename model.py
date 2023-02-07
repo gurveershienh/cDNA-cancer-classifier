@@ -155,12 +155,13 @@ def main():
                 pos_data=pos_df.drop(['label'], axis=1),
                 ref_ids=ref_ids,
                 threshold=th
-            )
+            ) + ['label']
 
 
             feature_selected_df = df[feature_select]
-            X = feature_selected_df.drop(['label'], axis=1).to_numpy()
-            y = feature_selected_df['label'].to_numpy()
+            print(feature_selected_df)
+            X = feature_selected_df.to_numpy()
+            y = df['label'].to_numpy()
 
 
             X, y = shuffle(X, y, random_state=999)
