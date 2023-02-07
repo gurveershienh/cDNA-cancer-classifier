@@ -55,7 +55,6 @@ def abs_variance_feature_sel(pos_data,neg_data, ref_ids, threshold):
         ref_ids: pd.DataFrame.columns
         threshold: Int < len(ref_ids)
     '''
-    ref_ids = list(ref_ids)
     
     variances = np.array([])
     
@@ -130,9 +129,6 @@ def load_data(folder, make_pkl=False):
     
     full_df = pd.concat((pos_df,neg_df), axis=0)
     full_df = full_df.loc[:,~full_df.columns.duplicated()].copy()
-    
-    if make_pkl is True:
-        pickle.dump(full_df, open('data_obj.pkl', 'wb'))
 
     return (neg_df,pos_df,full_df)
 
@@ -141,7 +137,7 @@ def main():
     
     # call function for loading data
     neg_df, pos_df, df = load_data(folder='gene_exps')
-    ref_ids = list(df.columns)
+    ref_ids = list(df.drop(['label'],axis=1).columns)
     
     # feature threshold
     th_lst = [50, 100, 500]
@@ -155,8 +151,8 @@ def main():
             
             # call feature selection function
             feature_select = abs_variance_feature_sel(
-                neg_data=neg_df,
-                pos_data=pos_df,
+                neg_data=neg_df.drop(['label'], axis=1),
+                pos_data=pos_df.drop(['label'], axis=1),
                 ref_ids=ref_ids,
                 threshold=th
             )
@@ -194,18 +190,21 @@ if __name__ == '__main__':
 -----------------------------------------------------------------------------------------------------------------------------------------------
     '''
     
+    # neg_df, pos_df, df = load_data(folder='gene_exps')
+    # ref_ids = list(df.drop(['label'],axis=1).columns)
     # svm_model = SVC(C=100)
 
     # features = abs_variance_feature_sel(
-    #     neg_data=neg_df,
-    #     pos_data=pos_df,
+    #     neg_data=neg_df.drop(['label'], axis=1),
+    #     pos_data=pos_df.drop(['label'], axis=1),
     #     ref_ids=ref_ids,
     #     threshold=500
     # ) + ['label']
 
-    # fs_df = full_df[features]
+    # fs_df = df[features]
     # X, y = np.array(fs_df.drop('label', axis=1)), np.array(fs_df['label'])
 
     # svm_model.fit(X,y)
 
     # pickle.dump(svm_model, open('svm_model.pkl', 'wb'))
+    # pickle.dump(fs_df, open('data_obj.pkl', 'wb'))
