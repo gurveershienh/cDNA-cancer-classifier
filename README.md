@@ -1,5 +1,5 @@
 # cDNA-classifier
-Oral cancer diagnosis tool that featurizes cDNA gene expression data from patient biopsies and classifies samples as cancerous or noncancerous using support vector machines. This application won the Best Genomcis project award at a University of Waterloo bioinformatics symposium.
+Oral cancer diagnosis tool that featurizes cDNA gene expression data from patient biopsies and classifies samples as cancerous or noncancerous using support vector machines. This application won the Best Genomics project award at a University of Waterloo bioinformatics symposium.
 
 Dependencies (conda 22.11.1 environment):
 Python 3.10.6, 
