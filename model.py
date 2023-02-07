@@ -175,15 +175,15 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    #main()
     
     
     
     '''
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
-    Model Metrics for DF=100 & num_features=500
-    {'TP': 31, 'TN': 34, 'FP': 7, 'FN': 4}
+    Model Metrics for DF=5 & num_features=50
+    {'TP': 35, 'TN': 41, 'FP': 0, 'FN': 0}
 
     Use these values to build trained model for application. Code is commented out below.
     
@@ -191,21 +191,21 @@ if __name__ == '__main__':
 -----------------------------------------------------------------------------------------------------------------------------------------------
     '''
     
-    # neg_df, pos_df, df = load_data(folder='gene_exps')
-    # ref_ids = list(df.drop(['label'],axis=1).columns)
-    # svm_model = SVC(C=100)
+    neg_df, pos_df, df = load_data(folder='gene_exps')
+    ref_ids = list(df.drop(['label'],axis=1).columns)
+    svm_model = SVC(C=5)
 
-    # features = abs_variance_feature_sel(
-    #     neg_data=neg_df.drop(['label'], axis=1),
-    #     pos_data=pos_df.drop(['label'], axis=1),
-    #     ref_ids=ref_ids,
-    #     threshold=500
-    # ) + ['label']
+    features = abs_variance_feature_sel(
+        neg_data=neg_df.drop(['label'], axis=1),
+        pos_data=pos_df.drop(['label'], axis=1),
+        ref_ids=ref_ids,
+        threshold=50
+    ) + ['label']
 
-    # fs_df = df[features]
-    # X, y = np.array(fs_df.drop('label', axis=1)), np.array(fs_df['label'])
+    fs_df = df[features]
+    X, y = np.array(fs_df.drop('label', axis=1)), np.array(fs_df['label'])
 
-    # svm_model.fit(X,y)
+    svm_model.fit(X,y)
 
-    # pickle.dump(svm_model, open('svm_model.pkl', 'wb'))
-    # pickle.dump(fs_df, open('data_obj.pkl', 'wb'))
+    pickle.dump(svm_model, open('svm_model.pkl', 'wb'))
+    pickle.dump(fs_df, open('data_obj.pkl', 'wb'))
