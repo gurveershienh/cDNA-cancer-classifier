@@ -10,8 +10,8 @@ tkinter 8.6.11,
 matplotlib 3.5.1, 
 pickle 0.7.5
 
-Below is an academic paper that covers the objective of this machine learning tool as well as the experimental methods and results used to craft it, I would love to answer any questions or supply an .exe version at gsshienh@uwaterloo.ca.
+Below is an academic paper that covers the objective of this machine learning tool as well as the experimental methods and results used to craft it. I would love to answer any questions or supply an .exe version at gsshienh@uwaterloo.ca.
 
 [Genomics.pdf](https://github.com/gurveershienh/cDNA-classifier/files/10672729/Genomics.pdf)
 
-**This application was solely developed by Gurveer Singh Shienh.
+**This application was solely developed by Gurveer Singh Shienh**
